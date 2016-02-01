@@ -150,7 +150,14 @@
 			}	
 		}
 		this.getBallInfo = function(len){
-			var row = 2;
+			var row = 3;
+			if(totalSecond > 22 && totalSecond < 29){
+				row = 1;
+			}else if(totalSecond > 10 && totalSecond < 23){
+				row = 2;
+			}else if(totalSecond < 11){
+				row = 3;
+			}
 			var rowHeight = 70;
 			len = len || 1;
 			len = Math.min(len,4);
