@@ -82,9 +82,9 @@
 			game.add.sprite(0,0,'top_icon');
 			game.add.sprite(game.width,0,'top_icon_right').anchor.setTo(1,0);
 			game.add.sprite(0,game.height,'bg_bottom').anchor.setTo(0,1);
-			game.add.sprite(20,32,'time_bg');
-			game.add.sprite(game.width-borderSpace,32,'score_bg').anchor.setTo(1,0);
-			var caishen = game.add.sprite(borderSpace,100,'caishen_sprite');
+			game.add.sprite(20,22,'time_bg');
+			game.add.sprite(game.width-borderSpace+20,22,'score_bg').anchor.setTo(1,0);
+			var caishen = game.add.sprite(borderSpace,70,'caishen_sprite');
 			this.caishen = caishen;
 			caishen.anchor.setTo(0.5,0);
 			caishen.animations.add('fly');
@@ -92,9 +92,9 @@
 			this.caishen_tween = game.add.tween(caishen).to( { x: game.width-borderSpace }, 3000, Phaser.Easing.Linear.None, true, 0, 10000, true);
 			this.updateTimeEvent = game.time.events.loop(1000, this.updateTime, this);
 			this.makeBallTimeEvent = game.time.events.loop(1000, this.generateBalls, this);
-			this.timeText = game.add.text(96,58,totalSecond+'s',{font: "bold 26px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
+			this.timeText = game.add.text(96,48,totalSecond+'s',{font: "bold 26px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 			this.timeText.anchor.setTo(0.5,0.5);
-			this.scoreText = game.add.text(game.width-120,67,score,{font: "bold 22px Arial", fill: "#fef000", boundsAlignH: "center", boundsAlignV: "middle"});
+			this.scoreText = game.add.text(game.width-100,57,score,{font: "bold 22px Arial", fill: "#fef000", boundsAlignH: "center", boundsAlignV: "middle"});
 			this.scoreText.anchor.setTo(0.5,0.5);
 			this.ballGroup = game.add.group();
 			this.ballGroup.enableBody = true;
@@ -174,7 +174,7 @@
 					//var cur =  Math.floor(Math.random()*xs.length);
 					x = xs[i];
 					//xs.splice(cur,1);
-					result.push({x:x,y:this.caishen.y+this.caishen.height + rowHeight*j - Math.random()*40,name:name});
+					result.push({x:x,y:this.caishen.y+this.caishen.height + rowHeight*j - Math.random()*30,name:name});
 				}
 			}
 					
