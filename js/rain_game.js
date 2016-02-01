@@ -151,14 +151,20 @@
 		}
 		this.getBallInfo = function(len){
 			var row = 3;
+			var rowHeight = 70;
+			var randomHeight = 30;
 			if(totalSecond > 22 && totalSecond < 29){
 				row = 1;
+				randomHeight = 40;
+				rowHeight = 80;
 			}else if(totalSecond > 10 && totalSecond < 23){
 				row = 2;
+				randomHeight = 80;
+				randomHeight = 90;
 			}else if(totalSecond < 11){
 				row = 3;
 			}
-			var rowHeight = 70;
+			
 			len = len || 1;
 			len = Math.min(len,4);
 			var space = 5;
@@ -181,7 +187,7 @@
 					//var cur =  Math.floor(Math.random()*xs.length);
 					x = xs[i];
 					//xs.splice(cur,1);
-					result.push({x:x,y:this.caishen.y+this.caishen.height + rowHeight*j - Math.random()*30,name:name});
+					result.push({x:x,y:this.caishen.y+this.caishen.height + rowHeight*j - Math.random()*randomHeight,name:name});
 				}
 			}
 					
@@ -210,7 +216,7 @@
 			ball.kill();
 		}
 		this.checkCollide = function(ball){
-			if(ball.y+ball.height > game.height){
+			if(ball.y - ball.height/2 > game.height){
 				ball.kill();
 			}			
 		}
